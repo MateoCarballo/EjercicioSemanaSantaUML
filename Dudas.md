@@ -1,25 +1,28 @@
-Clase Articulo:
+"Clase Artículo:
 
-    - Atributos que se especifican en el enunciado fáciles de interpretar y llevar a UML (fecha de publicacion y titulo).
+    -Añadiría a mayores un id único con el que poder identificar de forma inequívoca.
 
-    - Añadiria a mayores un id unico con el que poder identificar de forma inequivoca.
+    -Mi idea para tener ponderados a los autores en función de la importancia a la hora de crear el artículo es hacerlo con un hashmap. En el que tendría un entero y un autor. Este primer entero nos dirá el peso que tiene en la creación del artículo y desde el objeto de clase Investigador accederíamos a los demás atributos que contiene.
 
-    - Mi idea para tener ponderados a los autores en funcion de la importancia a la hora de crear el articulo es hacerlo con un hashmap.
-    En el que tendre un entero y un autor. Este primer entero nos dira el peso que tiene en la creacion del articulo y desde el objeto de clase Investigador accederiamos a los demas atributos que contiene.
+    -En el método 'addAutor()', paso un autor que ya existe (no lo instancio en el método), y consulto el valor del hashmap usando '.size()'. Ese tamaño será el integer que le daré y el objeto de la clase Investigador será el segundo parámetro. El primer elemento será quien nos diga la importancia del autor, así que es muy importante que se añadan autores en orden.
 
+    -Para guardar las citas dentro del artículo lo haría con un ArrayList que contenga enteros. Estos enteros serían los ids de los artículos a los que menciona.
 
-    -En el metodo 'addAutor()', paso un autor que ya existe(no lo instancio en el metodo), y consulto el valor del hashmap usando '.size()' ese tamaño sera el integer que le daré y el objeto de la clase Investigador será el segundo parametro. El primer elemento será quien nos diga la importancia del autor asi que es muy importante que se añadan autores en orden.
+    -Tengo dudas en si debería crear dos ArrayList, uno para artículos citados positivos y otro para negativos o si debería crear una clase cita que tenga:
+    · Quien cita (int idArticulo).
+    · A quien cita (int idArticulo).
+    · Valoración (boolean true = valoración positiva).
 
-    -Para guardar las citas dentro del articulo lo haría con un arrayList que contenga enteros.Estos enteros serian los ids de los articulos a los que menciona.
+Cita:
 
-    Tengo dudas en si deberia crear dos arrayList uno para articulos citados positivos y otro para negativos o si deberia crear una clase cita que tenga:
-        · Quien cita.(int idArticulo).
-        · A quien cita(int idArticulo).
-        · Valoracion (boolean true = valoracion positiva).    
+    -Desde mi punto de vista, las citas a artículos no pueden existir si no existen artículos. Como tampoco deberían existir valoraciones a artículos sin existir quien los valore. Por este motivo, las valoraciones deben ser creadas por un Investigador y pasadas como parámetro a un método que existe dentro del artículo. A este método 'addValoracion(Valoracion)' le pasamos un objeto de la clase Valoración que contiene el id del investigador que valora y el tipo de valoración.
 
+    -Duda sobre si los artículos deben ser creados por los investigadores. Por ahora, vamos a suponer que es así.
 
-    - Desde mi punto de vista las citas a articulos no pueden existir si no existen articulos. Como tampoco deberian existir valoraciones a articulos sin existir quien los valore. Por este motivo las valoraciones deben ser creadas por un Investigador y pasadas como parametro a un metodo que existe dentro del articulo. A este metodo 'addValoracion(Valoracion)' le pasamos un objeto de la clase Valoracion que contiene el id del investigador que valora y el tipo de valoracion.
+    -Una de las dudas más importantes que tengo es que mi cabeza quiere organizar el diagrama de modo que los artículos son creados por los autores, pero deberían poder existir si se elimina al autor del artículo y ahí me pierdo. También me cuesta saber cómo relacionar 'Investigador', 'Artículo', 'Valoración' y 'Cita'. Porque el 'Investigador' crea 'Artículo' y crea 'Valoración' y el 'Artículo' crea la 'Cita' a otros artículos.
 
-    - Duda sobre si los articulos deben ser creados por los investigadores. Por ahora vamos a suponer que es así.
+MAYORES DUDAS:
 
-Una de las dudas mas importantes que tengo es que mi cabeza quiere organizar el diagrama de modo que los articulos son creados por los autores pero deberian poder existir si se elimina al autor del artiulo y ahí me pierdo. Tambien me cuesta saber como relacionar 'Investigador', 'Articulo', 'Valoracion' y 'Cita'. Porque el 'Investigador' crea 'Articulo' y crea 'Valoracion' y el 'Articulo' crea la 'Cita' a otros articulos .
+· No sé cómo plantearlo, algunas cosas me encajan mejor al intentar el modelo entidad-relación, otras con código Java y otras con el UML.
+· Las cardinalidades no tengo muy claro cuando usar ceros y unos.
+· Las claves multievaluadas, entiendo que son los autores en los artículos y las categorías de los artículos."

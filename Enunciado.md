@@ -28,3 +28,4 @@ Esa cita podrá considerarse positiva o negativa.
 
 -Plantear uml (diagrama de clases), implementacion base de datos asociada (modelo E-R).
 
+
