@@ -1,3 +1,3 @@
 # EjercicioSemanaSantaUML.
 
-![Bueno bueno](Diagrama_UML.drawio.svg)
+![Alt text](Diagrama%20de%20clases%20UML/Diagrama_UML.drawio.svg)
